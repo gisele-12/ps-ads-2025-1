@@ -26,4 +26,25 @@ controller.create = async function (req, res) {
   }
 }
 
+controller.retrieveAll = async function (req, res) {
+  try {
+    // Recupera todos os registros de clientes do banco de dados,
+    // ordenados pelo campo "name"
+    const result = await prisma.customer.findMany({
+      orderBy: [ { name: 'asc' } ]
+    })
+
+    // HTTP 200: OK (implícito)
+    res.send(result)
+  }
+  catch(error) {
+    // Se algo de errado acontecer, cairemos aqui
+    // Nesse caso, vamos exibir o erro no console e enviar
+    // o código HTTP correspondente a erro do servidor
+    // HTTP 500: Internal Server Error
+    console.error(error)
+    res.status(500).end()
+  }
+}
+
 export default controller
