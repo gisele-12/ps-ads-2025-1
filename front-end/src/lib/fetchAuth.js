@@ -26,13 +26,15 @@ function getOptions(method = 'GET', body = null) {
   // e o inclui nos headers, se for o caso
   const token = window.localStorage.getItem(import.meta.env.VITE_AUTH_TOKEN_NAME)
 
+  console.log({token})
+
   if(token) options.headers.authorization = `Bearer ${token}`
 
   return options
 }
 
-function getErrorMessage(status) {
-  switch(status) {
+function getErrorMessage(response) {
+  switch(Number(response.status)) {
     case 401:
       return 'ERRO: usuário ou senha incorretos.'
     case 403:
@@ -45,6 +47,7 @@ function getErrorMessage(status) {
 }
 
 function processResponse(response) {
+  console.log(response)
   if(response.ok) {
     const isJson = response.headers.get('content-type')?.includes('application/json')
     if(isJson) return response.json()
@@ -52,7 +55,7 @@ function processResponse(response) {
   }
   else throw new HttpError(
     response.status, 
-    getErrorMessage(Number(response.status))
+    getErrorMessage(response)
   )
 }
 
