@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -50,3 +51,37 @@ model User {
   password          String        
   is_admin          Boolean       @default(false)
 }
+=======
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+//Tabela de clientes
+model Customer {
+  id              Int       @id @default(autoincrement())
+  ident_document  String
+  birth_date      DateTime? // ? significa que o campo e opcional
+  street_name     String
+  house_number    String
+  complements     String
+  district        String
+  municipality    String
+  state           String
+  phone           String
+  emal            String
+
+       
+}
+>>>>>>> 36697adf93b94dbd8dd7789964af32ee90720f5c
