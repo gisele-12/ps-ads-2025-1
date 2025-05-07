@@ -83,6 +83,7 @@ controller.retrieveOne = async function (req, res) {
 }
 
 controller.update = async function(req, res) {
+  console.log('****', req.body, req.params.id)
   try {
     // Se existe o campo 'password' em req.body,
     // é necessário gerar o hash da senha antes
