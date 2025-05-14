@@ -104,7 +104,6 @@ export default function UsersForm() {
         usuário existente. A requisição será enviada ao back-end usando o
         método PUT
       */
-      console.log({PARAMS: params.id})
       if(params.id) await fetchAuth.put(`/users/${params.id}`, user)
       /*
         Caso contrário, estamos criando um novo usuário, e enviaremos a
