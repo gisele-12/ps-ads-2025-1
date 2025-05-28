@@ -17,7 +17,8 @@ function getOptions(method = 'GET', body = null) {
     headers: {
       'Content-Type': 'application/json; charset=UTF-8'
     },
-    // credentials: 'include' 
+    // Pede para o back-end enviar cookies
+    credentials: 'include'
   }
 
   if(body) options.body = JSON.stringify(body)
@@ -69,8 +70,8 @@ fetchAuth.get = async function(route) {
   return processResponse(response)
 }
 
-fetchAuth.put = async function(route) {
-  const response = await fetch(baseUrl + route, getOptions('PUT'))
+fetchAuth.put = async function(route, body) {
+  const response = await fetch(baseUrl + route, getOptions('PUT', body))
   return processResponse(response)
 }
 
