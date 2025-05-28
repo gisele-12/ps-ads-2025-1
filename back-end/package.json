@@ -17,7 +17,11 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+<<<<<<< HEAD
     "zod": "^3.25.32"
+=======
+    "zod": "^3.24.4"
+>>>>>>> 5a9f04e931d3f2f9a9b6cbc4b079c3d06102a9a3
   },
   "devDependencies": {
     "eslint": "^9.8.0",

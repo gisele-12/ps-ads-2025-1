@@ -23,7 +23,11 @@
     "react-dom": "^18.3.1",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.26.2",
+<<<<<<< HEAD
     "zod": "^3.25.32"
+=======
+    "zod": "^3.24.4"
+>>>>>>> 5a9f04e931d3f2f9a9b6cbc4b079c3d06102a9a3
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
